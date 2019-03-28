@@ -1,7 +1,7 @@
-let days = 30,
-    firstDay = 1,
-    month = '04',
-    weeks = 5;
+const days = data.days,
+      firstDay = data.firstDay,
+      month = data.month,
+      weeks = data.weeks;
 
 let date = new Date();
 
@@ -46,7 +46,8 @@ function tdRender(url) {
                     } 
                 } else {
                     if (d <= days) {
-                        result += `<td><a href="http://files.1-mok.ru/volan/${url}-${access = (d < 10) ? 0 : ''}${d}.${month}.pdf?v=${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}" target="_blank">${access = (d < 10) ? 0 : ''}${d++}.${month}</a></td>`;} else {
+                        result += `<td><a href="http://files.1-mok.ru/volan/${url}-${access = (d < 10) ? 0 : ''}${d}.${month}.pdf?v=${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}" target="_blank">${access = (d < 10) ? 0 : ''}${d++}.${month}</a></td>`;
+                    } else {
                             result += `<td>&nbsp;</td>`;
                         }
                 }
@@ -60,26 +61,7 @@ function tdRender(url) {
     return result;
 }
 
-function init() {
-    if (window.localStorage) {
-        let elements = document.querySelectorAll('[name]');
-
-        for (let i = 0, length = elements.length; i < length; i++) {
-            (function (element) {
-                let name = element.getAttribute('name');
-
-                element.value = localStorage.getItem(name) || '';
-
-                element.onkeyup = function () {
-                    localStorage.setItem(name, element.value);
-                };
-            })(elements[i]);
-        }
-    }
-}
-
 window.onload = () => {
-    init();
 
     let dsTable = new MenuPmok('ds', 'pmok-ds');
     let soshTable = new MenuPmok('sosh', 'pmok-sosh');
@@ -88,7 +70,8 @@ window.onload = () => {
     let pmokH = document.getElementById('pmok-h2');
     pmokH.innerText = pmokH.textContent.replace(/{{year}}/g, `${date.getFullYear()}`);
 
-    let inputText = document.getElementById('pmok-food');
-    let inputTextArea = document.getElementById('text-area-input');
-    inputTextArea.innerText = inputText.outerHTML.replace(/  /g, '');
+    let foodDiv = document.getElementById('pmok-food');
+    let textForm = document.getElementById('text-area-input');
+    textForm.innerText = foodDiv.outerHTML.replace(/  /g, '');
+
 };
