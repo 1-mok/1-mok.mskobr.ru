@@ -1,11 +1,11 @@
 let date = new Date();
+
 let i = date.getMonth();
+
 let days = data[i].days,
       firstDay = data[i].firstDay,
       month = data[i].month,
       weeks = data[i].weeks;
-
-console.log(i);
 
 class MenuPmok {
     constructor(subD, tableId) {
