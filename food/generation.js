@@ -1,5 +1,5 @@
 let date = new Date();
-let i = 3;//date.getMonth();
+let i = date.getMonth();
 let days = data[i].days,
       firstDay = data[i].firstDay,
       month = data[i].month,
