@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
@@ -14,28 +14,20 @@
 
 
     <script>
-        let src = 1;
-        let max = 35;
+        let param = {
+            'src': 1,
+            'max': 35
+        };
+
         let result = '';
         let inputText = document.getElementById('input-text');
 
-
-
-        inputText.innerHTML = `<pre id="preText">${result}</pre>`;
-        inputTextArea.innerHTML = regexText;
-
-
-
-
-
-
-
-        for (let i = src; i <= max; i++) {
+        for (let i = param.src; i <= param.max; i++) {
             let p = `<p style="text-align: center;"><img alt="Программа развития" src="https://297900.selcdn.ru/files.1-mok.ru/info_add/programma/pr-2025-svg/pr-2025_page_${access = (i < 10) ? 0 : ''}${i}.svg" style="width: 100%;" /></a></p>`;
-            console.log(p);
+            result += p + `\n`;
         };
 
-
+        inputText.innerText = result;
     </script>
 </body>
 
